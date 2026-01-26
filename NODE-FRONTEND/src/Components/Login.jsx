@@ -9,6 +9,7 @@ const [emailID,setEmailID] = useState("");
 const [password,setPassword] = useState("")
 const dispatch = useDispatch()
 const navigate = useNavigate()
+
 const handlesubmit = async() =>
 {
   try{ 
@@ -17,7 +18,7 @@ const handlesubmit = async() =>
     emailID,
     password
   },{withCredentials:true})
-console.log(res.data)
+// console.log(res.data)
 dispatch(addUser(res.data))
 navigate("/")
 }
