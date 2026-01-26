@@ -9,17 +9,21 @@ import axios from "axios"
 
 const Body = () => {
   const dispatch = useDispatch()
-const navigate = useNavigate()
+  const navigate = useNavigate()
   const fetchUser = async () => {
     try {
-      const res = await axios.get(Base_Url + "/profile/view",{
-        withCredentials:true
+      const res = await axios.get(Base_Url + "/profile/view", {
+        withCredentials: true
       })
       dispatch(addUser(res.data))
     } catch (err) {
+
+
       navigate("/login")
+
       console.log(err)
     }
+
 
   }
   useEffect(() => {
@@ -33,7 +37,6 @@ const navigate = useNavigate()
       <Outlet />
       <Footer />
 
-      {/* {user && <h1>WELCOME {user.firstName}</h1>}  */}
     </div>
   )
 }
