@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import  { useEffect } from 'react'
 import axios from "axios"
 import { useDispatch, useSelector } from 'react-redux'
 import { Base_Url } from '../utils/constants'
@@ -19,9 +19,9 @@ const feed = () => {
         }
     }
 
-    useEffect(() => {
-        getfeed()
-    }, [])
+  useEffect(()=>{
+   getfeed()
+  },[])
 
     return (
         feed &&

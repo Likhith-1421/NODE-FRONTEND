@@ -8,25 +8,26 @@ import { addUser } from '../utils/userslice'
 import axios from "axios"
 
 const Body = () => {
+  const user = useSelector(store=>store.user)
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const fetchUser = async () => {
     try {
       const res = await axios.get(Base_Url + "/profile/view", {
-        withCredentials: true
+        withCredentials: true 
       })
       dispatch(addUser(res.data))
-    } catch (err) {
-
-
-      navigate("/login")
-
-      console.log(err)
+      console.log(res.data)
+    } 
+    catch (err) {
+     navigate("/login")
+     console.log(err)
     }
 
 
   }
   useEffect(() => {
+     //if(!user) return
     fetchUser()
   }, [])
 

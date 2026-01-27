@@ -1,8 +1,11 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+
 
 const Profile = () => {
+
   return (
-    <div>Profile</div>
+    <div>Hello Profile</div>
   )
 }
 

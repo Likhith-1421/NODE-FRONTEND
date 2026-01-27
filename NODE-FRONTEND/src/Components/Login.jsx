@@ -23,7 +23,7 @@ const Login = () => {
       navigate("/feed")
     }
     catch (err) {
-     setError(err?.response.data)
+      setError(err?.response.data)
       console.log(err)
 
     }
