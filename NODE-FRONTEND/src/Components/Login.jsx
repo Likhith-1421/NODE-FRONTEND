@@ -20,10 +20,10 @@ const Login = () => {
         }, { withCredentials: true })
       console.log(res.data)
       dispatch(addUser(res.data))
-      navigate("/")
+      navigate("/feed")
     }
     catch (err) {
-    setError(err?.response.data)
+     setError(err?.response.data)
       console.log(err)
 
     }
