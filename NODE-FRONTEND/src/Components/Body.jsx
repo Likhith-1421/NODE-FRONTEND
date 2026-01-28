@@ -8,7 +8,7 @@ import { addUser } from '../utils/userslice'
 import axios from "axios"
 
 const Body = () => {
-  const user = useSelector(store=>store.user)
+const user = useSelector(store=>store.user)
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const fetchUser = async () => {
@@ -27,8 +27,10 @@ const Body = () => {
 
   }
   useEffect(() => {
-     //if(!user) return
-    fetchUser()
+    
+         fetchUser()
+    
+    
   }, [])
 
 

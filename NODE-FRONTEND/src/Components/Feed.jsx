@@ -7,6 +7,7 @@ import FeedCrad from './FeedCrad'
 
 const feed = () => {
     const feed = useSelector((store) => store.feed)
+     
     const dispatch = useDispatch()
     const getfeed = async () => {
         try {
@@ -20,6 +21,7 @@ const feed = () => {
     }
 
   useEffect(()=>{
+    //   if(!user) return
    getfeed()
   },[])
 

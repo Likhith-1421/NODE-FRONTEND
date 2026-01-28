@@ -8,20 +8,18 @@ const Navbar = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const user = useSelector((store) => store.user)
-  const handleSubmit = async () => {
-    try {
-      await axios.post(Base_Url + "/logout", {
-        withcredenctials: true
-      })
+ 
 
+  const handleSubmit = async()=>{
+    try{
+      await axios.post(Base_Url + "/logout",{},{withCredentials:true})
       dispatch(removeUser())
       navigate("/login")
-    }
-    catch (err) {
+  }
+    catch(err)
+    {
       console.log(err)
     }
-
-
   }
 
 
