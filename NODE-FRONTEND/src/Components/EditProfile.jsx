@@ -1,31 +1,49 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { Base_Url } from '../utils/constants';
 import { addUser } from '../utils/userslice';
 import axios from 'axios';
-const EditProfile = () => {
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("")
-    const [age, setAge] = useState("")
-    const [gender, setGender] = useState("")
-    const [phoneNumber, setPhoneNumber] = useState("")
-    const [photourl, setPhotoUrl] = useState("")
+
+
+const EditProfile = ({ user }) => {
+    const [firstName, setFirstName] = useState(user.firstName);
+    const [lastName, setLastName] = useState(user.lastName)
+    const [age, setAge] = useState(user.age)
+    const [gender, setGender] = useState(user.gender)
+    const [phoneNumber, setPhoneNumber] = useState(user.phoneNumber)
+    const [photourl, setPhotoUrl] = useState(user.photourl)
+    const [error, setError] = useState("")
+  const [showtost,setShowTost] = useState(false)
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const handleSave = async () => {
-       try{
-          const res = await axios.post(Base_Url + "/profile/edit",{firstName,lastName,age,gender,phoneNumber,photourl}
-            ,{withCredentials:true})
-            console.log(res.data)
-            dispatch(addUser(res.data))
-       }
-       catch(err)
-       {
 
-       }
+
+    const handleSave = async () => {
+      
+        try {
+            const res = await axios.post(Base_Url + "/profile/edit", { firstName, lastName, age, gender, phoneNumber, photourl }
+                , { withCredentials: true })
+            console.log(res)
+            dispatch(addUser(res.data))
+            setShowTost(true)
+            setInterval(() => {
+                setShowTost(false)
+            }, 2000);
+
+             setError("")
+          
+        }
+        catch (err) {
+            setError(err?.response.data)
+            console.log(err)
+        }
     }
+
+    // useEffect(()=>{
+    //        handleSave()
+    // },[])
     return (
         <div>
 
@@ -64,12 +82,20 @@ const EditProfile = () => {
                         </div>
                         <br />
 
+
+                        <p className='text-red-500'>{error}</p>
                         <div className="card-actions justify-end ">
                             <button className="btn btn-primary" onClick={handleSave}>Save Profile</button>
                         </div>
                     </div>
                 </div>
             </div>
+   <div className="toast toast-top toast-center">
+
+  { showtost && <div className="alert alert-success">
+    <span>Profile Updated successfully.</span>
+  </div>}
+</div>
         </div>
     )
 }
