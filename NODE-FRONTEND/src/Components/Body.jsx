@@ -17,7 +17,7 @@ const user = useSelector(store=>store.user)
         withCredentials: true 
       })
       dispatch(addUser(res.data))
-      console.log(res.data)
+      // console.log(res.data)
     } 
     catch (err) {
      navigate("/login")
