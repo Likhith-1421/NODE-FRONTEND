@@ -28,7 +28,7 @@ const Connections = () => {
     if (!connections) return
     if (connections.length == [0]) {
 
-        return <h1 className='flex justify-center'>NO CONNECTIONS </h1>
+        return <h1 className='flex justify-center my-9'>NO CONNECTIONS </h1>
     }
     return (
 
@@ -46,7 +46,7 @@ const Connections = () => {
                         <div className='text-sm my-3.5'>
                             <h6 >{firstName + " " + lastName}</h6>
                          
-                            {age && gender && <h3>{age + " ," + gender}</h3>}
+                            {age && gender && <h3>age-{age + " ," + gender}</h3>}
                         </div>
 
 

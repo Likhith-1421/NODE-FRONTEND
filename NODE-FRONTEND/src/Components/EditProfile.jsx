@@ -14,6 +14,7 @@ const EditProfile = ({ user }) => {
     const [gender, setGender] = useState(user.gender)
     const [phoneNumber, setPhoneNumber] = useState(user.phoneNumber)
     const [photourl, setPhotoUrl] = useState(user.photourl)
+      const [about, setAbout] = useState(user.about)
     const [error, setError] = useState("")
   const [showtost,setShowTost] = useState(false)
     const dispatch = useDispatch()
@@ -23,7 +24,7 @@ const EditProfile = ({ user }) => {
     const handleSave = async () => {
       
         try {
-            const res = await axios.post(Base_Url + "/profile/edit", { firstName, lastName, age, gender, phoneNumber, photourl }
+            const res = await axios.post(Base_Url + "/profile/edit", { firstName, lastName, age, gender, phoneNumber, photourl,about }
                 , { withCredentials: true })
             console.log(res)
             dispatch(addUser(res.data))
@@ -78,6 +79,10 @@ const EditProfile = ({ user }) => {
                             <fieldset className="fieldset">
                                 <legend className="fieldset-legend">Photo Url</legend>
                                 <input type="text" value={photourl} className="input" onChange={(e) => setPhotoUrl(e.target.value)} />
+                            </fieldset>
+                             <fieldset className="fieldset">
+                                <legend className="fieldset-legend">About You</legend>
+                                <input type="text" value={about} className="input" onChange={(e) => setAbout(e.target.value)} />
                             </fieldset>
                         </div>
                         <br />
