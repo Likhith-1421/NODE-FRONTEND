@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import axios from 'axios'
 import { Base_Url } from '../utils/constants'
 import { useDispatch, useSelector } from 'react-redux'
-import { addRequests } from '../utils/PendingSlice'
+import { addRequests, removeRequests } from '../utils/PendingSlice'
 
 const PendingRequests = () => {
     const dispatch = useDispatch()
@@ -12,6 +12,7 @@ const PendingRequests = () => {
 
     const RequestConnection = async(status,_id) =>{
         const res = await axios.post(Base_Url + "/review/" + status + "/" + _id,{},{withCredentials:true})
+        dispatch(removeRequests(_id))
         console.log(res)
     }
 

@@ -7,8 +7,12 @@ const pendingSlice = createSlice({
         addRequests :(state,action)  =>
         {
             return action.payload
+        },
+        removeRequests :(state,action) =>{
+            const newArray = state.filter(user =>user._id != action.payload)
+            return newArray
         }
      }
 })
-export const {addRequests} = pendingSlice.actions
+export const {addRequests,removeRequests} = pendingSlice.actions
 export default pendingSlice.reducer
