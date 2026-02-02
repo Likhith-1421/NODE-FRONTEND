@@ -31,6 +31,10 @@ const feed = () => {
    getfeed()
   },[])
 
+if(feed.length <= 0 ) 
+{
+   return <h1 className='flex justify-center my-9'>No More Users</h1>
+}
     return (
      <>
     
