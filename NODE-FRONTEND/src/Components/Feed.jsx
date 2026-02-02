@@ -14,6 +14,7 @@ const feed = () => {
         try {
 
             const res = await axios.get(Base_Url + "/feed", { withCredentials: true })
+            console.log(res)
             dispatch(addfeed(res.data))
             setLogin(true)
             setTimeout(()=>{
@@ -32,9 +33,15 @@ const feed = () => {
 
     return (
      <>
-      {  feed &&
+    
+      
+      { 
+     
+      feed &&
         <div className=' flex justify-center my-4 '><FeedCrad user={feed[0]} /></div>
+       
       }
+     
 
         
         

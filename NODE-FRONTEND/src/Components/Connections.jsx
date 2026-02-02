@@ -39,7 +39,7 @@ const Connections = () => {
             {connections.map((connect) => {
                 const { firstName, lastName, age, gender, photourl } = connect
                 return (
-                    <div className='flex justify-center gap-8 border-none bg-base-300 rounded-lg w-1/2 h-20 m-auto '>
+                    <div className='flex justify-center gap-8 border-none bg-base-300 rounded-lg w-1/2 my-2 h-20 m-auto '>
                         <div >
                             <img src={photourl} className='w-15 h-15 my-3 rounded-full ' />
                         </div>
