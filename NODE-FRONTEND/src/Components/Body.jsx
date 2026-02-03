@@ -4,7 +4,7 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 import { useDispatch, useSelector } from 'react-redux'
 import { Base_Url } from '../utils/constants'
-import { addUser } from '../utils/userslice'
+import { addUser } from '../utils/userSlice'
 import axios from "axios"
 
 const Body = () => {
