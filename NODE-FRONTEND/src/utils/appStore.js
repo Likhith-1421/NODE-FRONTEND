@@ -1,5 +1,5 @@
 import {configureStore} from "@reduxjs/toolkit"
-import userReducer from "./userslice"
+import userReducer from "./userSlice"
 import feedReducer from "./feedSlice"
 import connectionsReducer from "./ConnectionSlice"
 import pendingReducer from "./PendingSlice"
