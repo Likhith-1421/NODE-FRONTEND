@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { Base_Url } from '../utils/constants';
-import { addUser } from '../utils/userslice';
+import { addUser } from '../utils/userSlice';
 import axios from 'axios';
 
 

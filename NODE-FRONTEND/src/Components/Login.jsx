@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from "axios"
 import { useDispatch } from 'react-redux';
-import { addUser } from '../utils/userslice';
+import { addUser } from '../utils/userSlice';
 import { useNavigate } from 'react-router-dom';
 import { Base_Url } from '../utils/constants';
 const Login = () => {
